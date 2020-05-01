@@ -1,5 +1,8 @@
+import sun.security.util.Length;
+
 public class Main{
   public void main(String args[]){
+
 
     for(int i; i<8; i++){
       for(int j; j<8; j++){
