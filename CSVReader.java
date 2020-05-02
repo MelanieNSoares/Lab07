@@ -4,6 +4,7 @@ import java.io.IOException;
 public class CSVReader {
 private String dataSource;
 private String[] commands;
+private Commands[] commandsssssssssss;
 
  public CSVReader() {
  this.commands = null;
@@ -20,8 +21,8 @@ private String[] commands;
  readCSV();
  }
 
- public String[] requestCommands() {
- return commands;
+ public Commands[] requestCommands() {
+   return setBlah();
  }
 
  private void readCSV() {
@@ -39,5 +40,20 @@ FileReader(dataSource));
  erro.printStackTrace();
  }
  }
+
+     public Commands[] setBlah( ){
+      commandsssssssssss = new Commands[commands.length];
+      for(int i = 0; i < commands.length; i++){
+          if(commands[i].length() == 7){
+            commandsssssssssss[i] = new Transform(commands[i]);
+          }
+
+          else if(commands[i].length() == 5){
+            commandsssssssssss[i] = new Movement(commands[i]);
+          }
+
+      }
+      return commandsssssssssss;
+    }
 
 }

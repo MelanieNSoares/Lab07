@@ -19,7 +19,7 @@ public class Table{
       
       for(int j=0; j<8; j++){
 
-        System.out.print(vTable[i][j].getPiece() + "\t");
+        System.out.print(vTable[i][j].getSymbol() + "\t");
 
       }
 

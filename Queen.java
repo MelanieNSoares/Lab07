@@ -1,20 +1,14 @@
 public class Queen extends Piece{
 
-    public Queen(int team){
-    super(team);
+    public Queen(int team,char symbol){
+    super(team,symbol);
   }
 
-    public char getPiece(){
-    if(team == 1){
-      return 'q';
-    }
-    else {
-      return 'Q';
-    }
-  }
+   
+
     
-    public boolean checkSpaces(Table table, int i, int j, int l, int m){
-        boolean empty = true;
+    public void checkSpaces(Table table, int i, int j, int l, int m){
+        super.checkSpaces(table, i, j, l, m);
         
         if(i != 0 && j != 0){
             while(empty && table.vTable[i][j] != table.vTable[l][m]){
@@ -43,28 +37,22 @@ public class Queen extends Piece{
                 }
             }
         }
-       
-       return empty;
         
     }
     
   public void verifyMovement(Table table, int init_row, int init_col, int fin_row, int fin_col){
       
-      int x_movement = fin_col - init_col;
-      int y_movement = fin_row - init_row;
+      super.verifyMovement(init_row, init_col,fin_row,fin_col,table);
       
-      if(x_movement != 0 || y_movement != 0 || (Math.abs(x_movement) != Math.abs(y.movement)){
+      if(x_movement != 0 || y_movement != 0 || (Math.abs(x_movement) != Math.abs(y_movement)) ){
         return;
     }
       
-      if(table.vTable[fin_row][fin_col] == null){
-      if (checkSpaces(table, init_row, init_col, fin_row, fin_col)){
+    if(table.vTable[fin_row][fin_col] == null || table.vTable[fin_row][fin_col].team != team){
+      checkSpaces(table,init_row, init_col,fin_row,fin_col);
+      if (empty){
         table.movePiece(init_row,init_col, fin_row,fin_col);
       }
     }
-    else if(table.vTable[fin_row][fin_col].team != team){
-      if (checkSpaces(table, init_row, init_col, fin_row, fin_col)){
-        table.movePiece(init_row,init_col, fin_row,fin_col);
-      }
-    }
+}
 }

@@ -1,33 +1,27 @@
 public class Commands{
-    
-    CSVReader csv;
-	  String commands[];
-    Commands commandsssssss[];
 
-    public void setCommands(){
-      csv = new CSVReader();
-      csv.setDataSource("entrada01.csv");
-      String commands[] = csv.requestCommands();
-      commandsssssss = new Commands[commands.length];
+    int init_col, init_row, fin_col, fin_row;
+    String commands;
+
+    public Commands(String commands){
+      this.commands = commands;
+      init_col = 0;
+      init_row = 0;
+      fin_col = 0;
+      fin_row = 0; 
     }
 
-    public void setBlah(){
-      for(int i = 0; i < commandsssssss.length; i++){
-          if(commands[i].length == 7){
-            commandsssssss[i] = new Transform(commands[i]);
-          }
+    public void doCommand(Table table){
 
-          else if(commands[i].length == 5){
-            commandsssssss[i] = new Movement(commands[i]);
-          }
-      }
-    }
+      init_col = commands.charAt(0) - 'a';
+      init_row = commands.charAt(1) - '1';
 
-    public void runCommands(){
-      for(int i = 0; i < commandsssssss.length; i++){
-        commandsssssss[i].doCommand();
-      }
-    }
+      fin_col = commands.charAt(3) - 'a';
+      fin_row = commands.charAt(4) - '1';
+
+      table.vTable[init_row][init_col].verifyMovement(init_row,init_col,fin_row,fin_col,table);
+
+  }
 
 
 
