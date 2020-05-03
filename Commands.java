@@ -13,6 +13,8 @@ public class Commands{
 
     public void doCommand(Table table){
 
+      System.out.print("yes3");
+
       init_col = commands.charAt(0) - 'a';
       init_row = commands.charAt(1) - '1';
 

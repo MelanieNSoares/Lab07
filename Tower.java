@@ -8,16 +8,27 @@ public class Tower extends Piece{
     public void checkSpaces(Table table, int i, int j, int l, int m){
       super.checkSpaces(table, i, j, l, m);
 
-    while(empty && table.vTable[i][j] != table.vTable[l][m]){
-        if(table.vTable[i][j] != null){
+      int foward = l - i, horizontal = m-j;
+
+      if(foward == 0){
+        horizontal = horizontal / Math.abs(horizontal);
+      }
+      else 
+      {
+        forward = (foward/Math.abs(foward));
+      }
+
+
+    while(empty && ( Math.abs(foward) < Math.abs(l - i) || Math.abs(horizontal) < Math.abs(m - j))){
+        if(table.vTable[i+foward][j+horizontal] != null){
             empty = false;
         }
         
-        if(j == 0){
-            i = (Math.abs(i) + 1 )*(i/Math.abs(i));
+        if(m-j == 0){
+            foward = (Math.abs(foward) + 1)*(foward/Math.abs(foward));
         }
-        else if(i==0){
-            j = (Math.abs(i) + 1 )*(i/Math.abs(i));
+        else if(l-i==0){
+          horizontal = (Math.abs(horizontal) + 1 )*(horizontal/Math.abs(horizontal));
         }
     }
 

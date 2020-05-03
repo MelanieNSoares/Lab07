@@ -9,36 +9,53 @@ public class Queen extends Piece{
     
     public void checkSpaces(Table table, int i, int j, int l, int m){
         super.checkSpaces(table, i, j, l, m);
+
+
+        int foward = l - i, horizontal = m - j;
         
-        if(i != 0 && j != 0){
-            while(empty && table.vTable[i][j] != table.vTable[l][m]){
-                if(table.vTable[i][j] != null){
-                    empty = false;
-            
-                }   
+        if((l-i) != 0 && (m-j) != 0){
+
+        foward = foward / Math.abs(foward);
+        horizontal = horizontal / Math.abs(horizontal);
+
+          while((empty && Math.abs(foward) < Math.abs(l - i))){
+            if(table.vTable[i + foward][j+horizontal] != null){
+              empty = false;
+          
+              }   
         
-                i = (Math.abs(i) + 1 )*(i/Math.abs(i));
-                j = (Math.abs(j) + 1 )*(j/Math.abs(j));
+            foward = (Math.abs(foward) + 1 )*(foward/Math.abs(foward));
+            horizontal = (Math.abs(horizontal) + 1 )*(horizontal/Math.abs(horizontal));
             }
         }
 
             
         else{
-            while(empty && table.vTable[i][j] != table.vTable[l][m]){
-                if(table.vTable[i][j] != null){
-                    empty = false;
-                }
-        
-                if(j == 0){
-                    i = (Math.abs(i) + 1 )*(i/Math.abs(i));
-                }
-                else if(i==0){
-                    j = (Math.abs(i) + 1 )*(i/Math.abs(i));
-                }
-            }
+
+        if(foward == 0){
+          horizontal = horizontal / Math.abs(horizontal);
+        }
+        else 
+        {
+          forward = (foward/Math.abs(foward));
+        }
+
+      while(empty && ( Math.abs(foward) < Math.abs(l - i) || Math.abs(horizontal) < Math.abs(m - j))){
+
+        if(table.vTable[i+foward][j+horizontal] != null){
+            empty = false;
         }
         
+        if(m-j == 0){
+            foward = (Math.abs(foward) + 1)*(foward/Math.abs(foward));
+        }
+        else if(l-i==0){
+          horizontal = (Math.abs(horizontal) + 1 )*(horizontal/Math.abs(horizontal));
+        }
     }
+        
+    }
+  }
     
   public void verifyMovement(Table table, int init_row, int init_col, int fin_row, int fin_col){
       

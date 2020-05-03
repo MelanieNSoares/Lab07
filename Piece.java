@@ -16,6 +16,8 @@ public class Piece{
   }
 
   public void verifyMovement(int init_row, int init_col, int fin_row, int fin_col,Table table){
+
+    System.out.print("yes6");
     
     x_movement = fin_col - init_col;
     y_movement = fin_row - init_row;

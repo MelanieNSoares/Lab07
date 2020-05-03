@@ -8,15 +8,19 @@ public class Bishop extends Piece{
 
   public void checkSpaces(Table table, int i, int j, int l, int m){
     super.checkSpaces(table,i,j,l,m);
+    int foward = l - i, horizontal = m - j;
+    foward = foward / Math.abs(foward);
+    horizontal = horizontal / Math.abs(horizontal);
 
-    while(empty && table.vTable[i][j] != table.vTable[l][m]){
-        if(table.vTable[i][j] != null){
+
+    while(empty && Math.abs(foward) < Math.abs(l - i)){
+        if(table.vTable[i + foward][j+horizontal] != null){
             empty = false;
             
         }
         
-        i = (Math.abs(i) + 1 )*(i/Math.abs(i));
-        j = (Math.abs(j) + 1 )*(j/Math.abs(j));
+        foward = (Math.abs(foward) + 1 )*(foward/Math.abs(foward));
+        horizontal = (Math.abs(horizontal) + 1 )*(horizontal/Math.abs(horizontal));
     }
 
   }

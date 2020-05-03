@@ -9,6 +9,8 @@ public class Table{
   public void movePiece(int init_row, int init_col, int fin_row, int fin_col){
     vTable[fin_row][fin_col] = vTable[init_row][init_col];
     vTable[init_row][init_col] = null; 
+
+    showTable();
   }
 
 
@@ -19,8 +21,13 @@ public class Table{
       
       for(int j=0; j<8; j++){
 
-        System.out.print(vTable[i][j].getSymbol() + "\t");
+        if(vTable[i][j] == null){
+          System.out.print('-' + "\t");
+        }
+        else{
 
+        System.out.print(vTable[i][j].getSymbol() + "\t");
+        }
       }
 
       System.out.print("\n");
