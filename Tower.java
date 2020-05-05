@@ -15,7 +15,7 @@ public class Tower extends Piece{
       }
       else 
       {
-        forward = (foward/Math.abs(foward));
+        foward = (foward/Math.abs(foward));
       }
 
 
@@ -35,15 +35,24 @@ public class Tower extends Piece{
 
   }
 
-  public void verifyMovement(Table table, int init_row, int init_col, int fin_row, int fin_col){
+  public void verifyMovement( int init_row, int init_col, int fin_row, int fin_col, Table table){
       
       super.verifyMovement(init_row, init_col,fin_row,fin_col,table);
+
+    System.out.println("*");
+
+    System.out.println(x_movement + " " + y_movement);
     
-    if(x_movement != 0 || y_movement != 0){
+    if((x_movement != 0 && y_movement == 0) || (y_movement != 0 && x_movement == 0)){
+    }
+    else {
+      System.out.println("**");
       return;
     }
 
+
     if(table.vTable[fin_row][fin_col] == null || table.vTable[fin_row][fin_col].team != team){
+      System.out.println("***");
 
       checkSpaces(table,init_row, init_col,fin_row,fin_col);
 

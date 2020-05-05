@@ -1,12 +1,14 @@
 public class Table{
   public Piece vTable[][] = new Piece[8][8];
   int round;
+  Piece oldPiece;
 
   public void setTable(int i, int j, Piece piece){
     vTable[i][j] = piece;
   }
 
   public void movePiece(int init_row, int init_col, int fin_row, int fin_col){
+    oldPiece = vTable[init_row][init_col];
     vTable[fin_row][fin_col] = vTable[init_row][init_col];
     vTable[init_row][init_col] = null; 
 

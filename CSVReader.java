@@ -44,8 +44,9 @@ FileReader(dataSource));
      public Commands[] setBlah( ){
       commandsssssssssss = new Commands[commands.length];
       for(int i = 0; i < commands.length; i++){
-          if(commands[i].length() == 7){
+          if(commands[i].length() == 1){
             commandsssssssssss[i] = new Transform(commands[i]);
+            commandsssssssssss[i].setLastCommand(commands[i-1]);
           }
 
           else if(commands[i].length() == 5){

@@ -65,7 +65,6 @@ public class Main{
 
     //run commands
     for(int i = 0; i < commands.length; i++){
-      System.out.print("yes1");
         commands[i].doCommand(table);
         
       }

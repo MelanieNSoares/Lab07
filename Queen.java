@@ -10,7 +10,6 @@ public class Queen extends Piece{
     public void checkSpaces(Table table, int i, int j, int l, int m){
         super.checkSpaces(table, i, j, l, m);
 
-
         int foward = l - i, horizontal = m - j;
         
         if((l-i) != 0 && (m-j) != 0){
@@ -37,7 +36,7 @@ public class Queen extends Piece{
         }
         else 
         {
-          forward = (foward/Math.abs(foward));
+          foward = (foward/Math.abs(foward));
         }
 
       while(empty && ( Math.abs(foward) < Math.abs(l - i) || Math.abs(horizontal) < Math.abs(m - j))){
@@ -57,13 +56,17 @@ public class Queen extends Piece{
     }
   }
     
-  public void verifyMovement(Table table, int init_row, int init_col, int fin_row, int fin_col){
+  public void verifyMovement(int init_row, int init_col, int fin_row, int fin_col, Table table){
       
       super.verifyMovement(init_row, init_col,fin_row,fin_col,table);
+
+
       
-      if(x_movement != 0 || y_movement != 0 || (Math.abs(x_movement) != Math.abs(y_movement)) ){
+      if((x_movement == 0 && y_movement != 0) || (y_movement == 0 && x_movement != 0) || (Math.abs(x_movement) == Math.abs(y_movement)) ){}
+
+      else{
         return;
-    }
+      }
       
     if(table.vTable[fin_row][fin_col] == null || table.vTable[fin_row][fin_col].team != team){
       checkSpaces(table,init_row, init_col,fin_row,fin_col);
