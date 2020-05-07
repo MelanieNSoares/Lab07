@@ -28,6 +28,11 @@ public class Pawn extends Piece{
       System.out.println("++");
       return;}
 
+    else if((Math.abs(x_movement) == 0 && y_movement != 0) && (table.vTable[fin_row][fin_col] != null)){
+      System.out.println("cant move in this direction");
+      return;
+    }
+
 
     else if(table.vTable[fin_row][fin_col] == null){
       table.movePiece(init_row,init_col, fin_row,fin_col);

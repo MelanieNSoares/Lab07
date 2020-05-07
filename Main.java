@@ -4,7 +4,7 @@ public class Main{
 
     Table table = new Table();
     CSVReader csv = new CSVReader();
-    csv.setDataSource("entrada01.csv");
+    csv.setDataSource("teste02.csv");
     Commands commands[] = csv.requestCommands();
 
 

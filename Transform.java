@@ -24,6 +24,10 @@ public class Transform extends Commands{
       System.out.println("is not");
     }
 
+    if(fin_row != 7 || fin_row != 0){
+      return;
+    }
+
     System.out.println(fin_row);
     System.out.println(fin_col);
 
@@ -39,27 +43,27 @@ public class Transform extends Commands{
       }
 
       else if(transform == 'b' || transform == 'B'){
-        table.vTable[fin_row][fin_col] = new Bishop(table.vTable.team,transform);
+        table.vTable[fin_row][fin_col] = new Bishop(table.vTable[fin_row][fin_col].team,transform);
         
       }
 
       else if(transform == 'h' || transform == 'H'){
-        table.vTable[fin_row][fin_col] = new Horse(table.vTable.team,transform);
+        table.vTable[fin_row][fin_col] = new Horse(table.vTable[fin_row][fin_col].team,transform);
         
       }
 
             else if(transform == 'k' || transform == 'K'){
-        table.vTable[fin_row][fin_col] = new King(table.vTable.team,transform);
+        table.vTable[fin_row][fin_col] = new King(table.vTable[fin_row][fin_col].team,transform);
         
       }
 
             else if(transform == 'p' || transform == 'P'){
-        table.vTable[fin_row][fin_col] = new Pawn(table.vTable.team,transform);
+        table.vTable[fin_row][fin_col] = new Pawn(table.vTable[fin_row][fin_col].team,transform);
         
       }
 
             else if(transform == 't' || transform == 'T'){
-        table.vTable[fin_row][fin_col] = new Tower(table.vTable.team,transform);
+        table.vTable[fin_row][fin_col] = new Tower(table.vTable[fin_row][fin_col].team,transform);
         
       }
 

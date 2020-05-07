@@ -7,6 +7,7 @@ public class Movement extends Commands{
 
   public void doCommand(Table table){
     super.doCommand(table);
+    table.round = table.round * -1;
 
   }
 }
