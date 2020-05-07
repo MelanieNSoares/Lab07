@@ -12,25 +12,17 @@ public class Transform extends Commands{
 
   public void doCommand(Table table){
 
-    System.out.println("@");
 
     fin_row = lastCommand.charAt(4)-'1';
     fin_col = lastCommand.charAt(3) - 'a';
 
-    System.out.println(lastCommand);
-    System.out.println(commands);
 
     if(table.vTable[fin_row][fin_col] != table.oldPiece){
-      System.out.println("is not");
     }
 
     if(fin_row != 7 || fin_row != 0){
       return;
     }
-
-    System.out.println(fin_row);
-    System.out.println(fin_col);
-
 
 
     if(table.vTable[fin_row][fin_col] != table.oldPiece || table.vTable[fin_row][fin_col] instanceof Pawn == false){

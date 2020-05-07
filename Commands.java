@@ -25,7 +25,6 @@ public class Commands{
       oldPiece = table.vTable[init_row][init_col];
 
       if(table.round != table.vTable[init_row][init_col].team){
-        System.out.println("It is not your turn!");
         return;
       }
 

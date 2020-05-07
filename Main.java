@@ -60,8 +60,9 @@ public class Main{
       }
     }
 
+    System.out.println("Tabuleiro incialmente:");
     table.showTable();
-    System.out.print(commands[0].commands);
+    
 
     //run commands
     for(int i = 0; i < commands.length; i++){

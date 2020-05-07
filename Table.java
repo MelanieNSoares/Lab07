@@ -13,6 +13,7 @@ public class Table{
     fin_piece = vTable[fin_row][fin_col];
     vTable[fin_row][fin_col] = vTable[init_row][init_col];
     vTable[init_row][init_col] = null; 
+    System.out.println("Source: " + (char) (init_col + 97) +""+(char)(init_row + 49) + " Target: " + (char)(fin_col + 97)+""+(char)(fin_row + 49) );
 
     showTable();
 

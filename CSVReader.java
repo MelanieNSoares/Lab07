@@ -4,7 +4,7 @@ import java.io.IOException;
 public class CSVReader {
 private String dataSource;
 private String[] commands;
-private Commands[] commandsssssssssss;
+private Commands[] objectCommands;
 
  public CSVReader() {
  this.commands = null;
@@ -22,7 +22,7 @@ private Commands[] commandsssssssssss;
  }
 
  public Commands[] requestCommands() {
-   return setBlah();
+   return setObjects();
  }
 
  private void readCSV() {
@@ -41,20 +41,20 @@ FileReader(dataSource));
  }
  }
 
-     public Commands[] setBlah( ){
-      commandsssssssssss = new Commands[commands.length];
+     public Commands[] setObjects( ){
+      objectCommands = new Commands[commands.length];
       for(int i = 0; i < commands.length; i++){
           if(commands[i].length() == 1){
-            commandsssssssssss[i] = new Transform(commands[i]);
-            commandsssssssssss[i].setLastCommand(commands[i-1]);
+            objectCommands[i] = new Transform(commands[i]);
+            objectCommands[i].setLastCommand(commands[i-1]);
           }
 
           else if(commands[i].length() == 5){
-            commandsssssssssss[i] = new Movement(commands[i]);
+            objectCommands[i] = new Movement(commands[i]);
           }
 
       }
-      return commandsssssssssss;
+      return objectCommands;
     }
 
 }
